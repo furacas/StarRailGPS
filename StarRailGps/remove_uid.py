@@ -1,6 +1,6 @@
 import cv2
 
-from star_rail_gps.utils.resources import resource_path
+from StarRailGps.utils.resources import resource_path
 
 # 加载图像
 img = cv2.imread(resource_path('test_data/screen_1920_1080.png'))

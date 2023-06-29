@@ -3,7 +3,7 @@ import time
 
 import requests
 
-from star_rail_gps.utils.resources import resource_path
+from StarRailGps.utils.resources import resource_path
 
 response = requests.get(
     "https://api-static.mihoyo.com/common/srmap/sr_map/v1/map/tree?map_id=38&app_sn=sr_map&lang=zh-cn")
