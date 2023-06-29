@@ -1,7 +1,7 @@
 import cv2 as cv
 import json
 
-with open('maps/name_id.json', 'r', encoding='utf-8') as f:
+with open('resources/maps/name_id.json', 'r', encoding='utf-8') as f:
     name_id_map = json.load(f)
 
 

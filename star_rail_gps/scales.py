@@ -19,10 +19,10 @@ def get_mask_from_gray_image(map_bgra):
 	mask = (a>250) & (gray>80)
 	return mask.astype(np.uint8)*255
 
-img =  cv2.imread('maps/50.png',cv2.IMREAD_UNCHANGED)
+img =  cv2.imread('resources/maps/50.png',cv2.IMREAD_UNCHANGED)
 img = get_mask_from_gray_image(img)
 
-screen = cv2.imread('data/screen_1920_1080.png')
+screen = cv2.imread('resources/data/screen_1920_1080.png')
 minimap_rect = [77, 88, 127, 127] # (x, y, width, height)
 template = screen[minimap_rect[1]:minimap_rect[1]+minimap_rect[3], minimap_rect[0]:minimap_rect[0]+minimap_rect[2]]
 template = get_mask_from_rgb(template)

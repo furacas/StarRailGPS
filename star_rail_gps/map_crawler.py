@@ -8,7 +8,7 @@ response = requests.get("https://api-static.mihoyo.com/common/srmap/sr_map/v1/ma
 
 tree = response.json()['data']['tree']
 
-with open('maps/tree.json', 'w', encoding='utf-8') as f:
+with open('resources/maps/tree.json', 'w', encoding='utf-8') as f:
     json.dump(tree, f, indent=4,ensure_ascii=False)
 
 name_id = {}
@@ -34,5 +34,5 @@ for parent in tree:
 
         time.sleep(1)
 
-with open('maps/name_id.json', 'w', encoding='utf-8') as f:
+with open('resources/maps/name_id.json', 'w', encoding='utf-8') as f:
     json.dump(name_id, f, indent=4,ensure_ascii=False)
