@@ -2,8 +2,8 @@
 import cv2
 import numpy as np
 
-from StarRailGps.gps import get_mask_from_gray_map, get_mask_from_rgb_min_map
-from StarRailGps.utils.resources import resource_path
+from StarRailGPS.gps import get_mask_from_gray_map, get_mask_from_rgb_min_map
+from StarRailGPS.utils.resources import resource_path
 
 img = cv2.imread(resource_path('maps/50.png'), cv2.IMREAD_UNCHANGED)
 img = get_mask_from_gray_map(img)

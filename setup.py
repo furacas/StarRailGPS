@@ -8,7 +8,7 @@ requirements = [r.strip() for r in requirements if not r.startswith('#')]
 requirements = [r.split('==')[0] for r in requirements]
 
 setup(
-    name="StarRailGps",
+    name="StarRailGPS",
     version="0.0.1",
     setup_requires=['setuptools_scm'],
     use_scm_version=True,
@@ -25,6 +25,6 @@ setup(
     ],
     python_requires='>=3.7',
     package_data={
-        'StarRailGps': ['resources/*'],
+        'StarRailGPS': ['resources/*'],
     },
 )

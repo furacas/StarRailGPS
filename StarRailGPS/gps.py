@@ -4,7 +4,7 @@ from typing import Tuple
 import cv2 as cv
 import numpy as np
 
-from StarRailGps.utils.resources import resource_path
+from StarRailGPS.utils.resources import resource_path
 
 scale = 0.82
 minimap_rect = [77, 88, 127, 127]
