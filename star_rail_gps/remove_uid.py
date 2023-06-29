@@ -1,5 +1,4 @@
 import cv2
-import numpy as np
 
 from star_rail_gps.utils.resources import resource_path
 
