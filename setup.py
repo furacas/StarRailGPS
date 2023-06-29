@@ -25,6 +25,6 @@ setup(
     ],
     python_requires='>=3.7',
     package_data={
-        'StarRailGPS': ['resources/*'],
+        'StarRailGPS': ['resources/**/*'],
     },
 )
