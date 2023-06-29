@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-with open('requirements.txt') as f:
+with open('requirements.txt', 'r', encoding='utf-8') as f:
     requirements = f.readlines()
 requirements = [r.strip() for r in requirements if not r.startswith('#')]
 
@@ -17,7 +17,7 @@ setup(
     author="furacas",
     author_email="s.furacas@outlook.com",
     description="Honkai: Star Rail GPS",
-    long_description=open('README.md').read(),
+    long_description=open('README.md', 'r', encoding='utf-8').read(),
     long_description_content_type="text/markdown",
     url="https://github.com/furacas/StarRailGPS",
     classifiers=[
