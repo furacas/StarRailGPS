@@ -3,6 +3,8 @@ from setuptools import setup, find_packages
 setup(
     name="star_rail_gps",
     version="0.0.1",
+    setup_requires=['setuptools_scm'],
+    use_scm_version=True,
     packages=find_packages(),
     author="furacas",
     author_email="s.furacas@outlook.com",
