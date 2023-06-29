@@ -2,6 +2,9 @@
 import cv2
 import numpy as np
 
+from star_rail_gps.utils.resources import resource_path
+
+
 def get_mask_from_rgb(img_r):
 	img_hsv = cv2.cvtColor(img_r, cv2.COLOR_BGR2HSV)
 	h, s, v = cv2.split(img_hsv)
@@ -19,10 +22,10 @@ def get_mask_from_gray_image(map_bgra):
 	mask = (a>250) & (gray>80)
 	return mask.astype(np.uint8)*255
 
-img =  cv2.imread('resources/maps/50.png',cv2.IMREAD_UNCHANGED)
+img =  cv2.imread(resource_path('maps/50.png'),cv2.IMREAD_UNCHANGED)
 img = get_mask_from_gray_image(img)
 
-screen = cv2.imread('resources/data/screen_1920_1080.png')
+screen = cv2.imread(resource_path('test_data/screen_1920_1080.png'))
 minimap_rect = [77, 88, 127, 127] # (x, y, width, height)
 template = screen[minimap_rect[1]:minimap_rect[1]+minimap_rect[3], minimap_rect[0]:minimap_rect[0]+minimap_rect[2]]
 template = get_mask_from_rgb(template)
