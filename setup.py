@@ -1,11 +1,19 @@
 from setuptools import setup, find_packages
 
+with open('requirements.txt') as f:
+    requirements = f.readlines()
+requirements = [r.strip() for r in requirements if not r.startswith('#')]
+
+# Remove version numbers
+requirements = [r.split('==')[0] for r in requirements]
+
 setup(
     name="star_rail_gps",
     version="0.0.1",
     setup_requires=['setuptools_scm'],
     use_scm_version=True,
     packages=find_packages(),
+    install_requires=requirements,
     author="furacas",
     author_email="s.furacas@outlook.com",
     description="Honkai: Star Rail GPS",
