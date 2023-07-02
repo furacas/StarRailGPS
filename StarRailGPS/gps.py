@@ -1,12 +1,13 @@
 import json
-from typing import Tuple
+from typing import Dict, Any
 
 import cv2 as cv
 import numpy as np
 
 from StarRailGPS.utils.resources import resource_path
 
-scale = 0.82
+SCALE = 0.82
+RUNNING_SCALE = 1.03
 minimap_coordinate = (77, 88, 127, 127)
 arrow_coordinate = (117, 128, 47, 47)
 
@@ -33,10 +34,24 @@ def get_mask_from_rgb_min_map(rgb_img):
     return img_mask
 
 
-def position(screen, map_name=None) -> Tuple[int, int]:
+def position(screen, options: Dict[str, Any] = None) -> Dict[str, Any]:
+    if options is None:
+        options = {}
+
+    map_name = options.get('map_name')
+
     # template
     min_map = crop_image(screen, minimap_coordinate)
     template = get_mask_from_rgb_min_map(min_map)
+
+    scale = options.get('scale', None)
+
+    if not scale:
+        is_running = options.get('is_running', False)
+        if is_running:
+            scale = RUNNING_SCALE
+        else:
+            scale = SCALE
 
     # 调整模板的大小到最佳匹配大小
     resized_template = cv.resize(template, None, fx=scale, fy=scale, interpolation=cv.INTER_AREA)
@@ -52,7 +67,11 @@ def position(screen, map_name=None) -> Tuple[int, int]:
     min_val, max_val, min_loc, max_loc = cv.minMaxLoc(res)
     h, w = resized_template.shape[:2]
     x, y = max_loc[0] + w / 2, max_loc[1] + h / 2
-    return int(x), int(y)
+
+    result = {'position': (int(x), int(y))}
+    if options.get('return_match_quality', False):
+        result['match_quality'] = max_val
+    return result
 
 
 def calculate_direction(screen) -> int:

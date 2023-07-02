@@ -16,3 +16,4 @@ def remove(path):
 
 remove(resource_path('test_data/screen_1920_1080.png'))
 remove(resource_path('test_data/screen_1920_1080_1.png'))
+remove(resource_path('test_data/screen_1920_1080_run.png'))
